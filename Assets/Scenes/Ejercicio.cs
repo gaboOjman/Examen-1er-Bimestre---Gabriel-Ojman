@@ -43,10 +43,8 @@ public class Ejercicio : MonoBehaviour
         {
             if(cat == catPermitidas[i])
             {
-                if (dias >= 3)
-                {
-                    calc();
-                } else
+                if (dias >= 3){}
+                else
                 {
                     error[0] = true;
                 }
@@ -70,12 +68,25 @@ public class Ejercicio : MonoBehaviour
         } else
         {
             calc();
-            Debug.Log("a");
         }
     }
 
     void calc() {
+        float precio;
+        int peso = 0;
 
+
+        switch (cat)
+        {
+            case "G": peso = 300; break;
+            case "PP": peso = 400; break;
+            case "PG": peso = 700; break;
+        }
+
+        precio = (80 * peso) / 100;
+
+        Debug.Log("Para ese período se necesitan " + peso + " gramos de alimento");
+        Debug.Log("Con un precio de $" + precio);
     }
 
     // Update is called once per frame
